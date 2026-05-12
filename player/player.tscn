@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://chgrauwxfo00r"]
 
 [ext_resource type="Script" uid="uid://cxf3d0u4hj2gv" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://bxdtsicyvvbm3" path="res://state_machine/state_machine.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://bpjdapri65cn4" path="res://state_machine/states/idle.gd" id="3_qjkh3"]
+[ext_resource type="Script" uid="uid://cwyjxlnbjb83v" path="res://state_machine/states/moving.gd" id="4_g6k8r"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1426017178]
 script = ExtResource("1_oul6g")
+
+[node name="StateMachine" type="Node" parent="." unique_id=770910562 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_yw30f")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://bxdtsicyvvbm3"
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1354787649]
+script = ExtResource("3_qjkh3")
+metadata/_custom_type_script = "uid://bpjdapri65cn4"
+
+[node name="MovingState" type="Node" parent="StateMachine" unique_id=276287561]
+script = ExtResource("4_g6k8r")
+metadata/_custom_type_script = "uid://cwyjxlnbjb83v"
+
+[node name="AirState" type="Node" parent="StateMachine" unique_id=1968561971]
+script = ExtResource("3_qjkh3")
+metadata/_custom_type_script = "uid://bpjdapri65cn4"
