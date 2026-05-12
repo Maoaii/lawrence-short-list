@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Logs="*uid://dfyif5sjq7hah"
+GlobalLogger="*uid://dfyif5sjq7hah"
 
 [dotnet]
 
