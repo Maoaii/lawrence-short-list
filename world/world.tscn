@@ -6,6 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5o24"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcf2h"]
+size = Vector2(128, 323.4087)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4717r"]
+size = Vector2(128, 323.4087)
+
 [node name="World" type="Node2D" unique_id=1539791094]
 
 [node name="Player" parent="." unique_id=1426017178 instance=ExtResource("1_tcf2h")]
@@ -30,14 +36,17 @@ position = Vector2(1345, 198.00002)
 scale = Vector2(1.7676129, 7.76381)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/RightWall" unique_id=860353822]
-shape = SubResource("RectangleShape2D_h5o24")
+position = Vector2(-3.3944082, -98.40529)
+shape = SubResource("RectangleShape2D_tcf2h")
 
 [node name="LeftWall" type="StaticBody2D" parent="Platforms" unique_id=1466556649]
 position = Vector2(-210.99988, 198.00002)
 scale = Vector2(1.7676129, 7.76381)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/LeftWall" unique_id=330658797]
-shape = SubResource("RectangleShape2D_h5o24")
+position = Vector2(0, -97.704346)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4717r")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Platforms" unique_id=1776114915]
 position = Vector2(883, 479)

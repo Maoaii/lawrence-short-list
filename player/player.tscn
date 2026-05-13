@@ -40,6 +40,7 @@ script = ExtResource("3_8t03j")
 speed = 600.0
 acceleration = 3000.0
 friction = 4500.0
+air_friction = 800.0
 metadata/_custom_type_script = "uid://bs3dy3dfo553b"
 
 [node name="GravityComponent" type="Node" parent="Components" unique_id=1887184383]
