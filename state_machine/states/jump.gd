@@ -30,7 +30,7 @@ func physics_process(delta: float) -> void:
     gravity_component.apply(owner, delta)
     owner.move_and_slide()
 
-    if owner.velocity.y > 0.0:
+    if owner.velocity.y >= 0.0:
         state_machine.transition_to(fall_state)
 
 func handle_input(_event: InputEvent) -> void:
