@@ -11,16 +11,19 @@
 [ext_resource type="Script" uid="uid://cvnddrn6teski" path="res://components/movement/jump_component.gd" id="5_yllr7"]
 [ext_resource type="Script" uid="uid://bjsfann132gn4" path="res://state_machine/states/fall.gd" id="6_boad6"]
 [ext_resource type="Script" uid="uid://b22rrqx11wpdq" path="res://components/movement/player_input_component.gd" id="6_kb6p2"]
-[ext_resource type="Script" uid="uid://cug2pm6lrt08g" path="res://components/abilities/bounce.gd" id="7_wodsf"]
+[ext_resource type="Script" uid="uid://bxiy6wqqdriyt" path="res://components/visuals/stretch_squash_component.gd" id="8_visul"]
+[ext_resource type="Script" uid="uid://bsw555rtftfse" path="res://components/abilities/knockback_component.gd" id="8_yllr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6s5"]
 size = Vector2(42, 109)
 
-[node name="Player" type="CharacterBody2D" unique_id=1426017178 node_paths=PackedStringArray("jump", "state_machine", "bounce")]
+[node name="Player" type="CharacterBody2D" unique_id=1426017178 node_paths=PackedStringArray("input_component", "jump", "visual", "state_machine", "knockback")]
 script = ExtResource("1_oul6g")
+input_component = NodePath("Components/PlayerInputComponent")
 jump = NodePath("Components/JumpComponent")
+visual = NodePath("Components/StretchSquashComponent")
 state_machine = NodePath("StateMachine")
-bounce = NodePath("Components/BounceComponent")
+knockback = NodePath("Components/KnockbackComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=576873]
 position = Vector2(0, 5.5)
@@ -36,7 +39,7 @@ texture = ExtResource("2_hg6s5")
 script = ExtResource("3_8t03j")
 speed = 600.0
 acceleration = 3000.0
-friction = 3000.0
+friction = 4500.0
 metadata/_custom_type_script = "uid://bs3dy3dfo553b"
 
 [node name="GravityComponent" type="Node" parent="Components" unique_id=1887184383]
@@ -54,10 +57,16 @@ metadata/_custom_type_script = "uid://cvnddrn6teski"
 script = ExtResource("6_kb6p2")
 metadata/_custom_type_script = "uid://b22rrqx11wpdq"
 
-[node name="BounceComponent" type="Node" parent="Components" unique_id=310587693]
-script = ExtResource("7_wodsf")
-enabled = false
-metadata/_custom_type_script = "uid://cug2pm6lrt08g"
+[node name="StretchSquashComponent" type="Node" parent="Components" unique_id=892341234 node_paths=PackedStringArray("target")]
+script = ExtResource("8_visul")
+target = NodePath("../../Sprite2D")
+jump_scale = Vector2(0.8, 1.1)
+land_scale = Vector2(1.3, 0.9)
+duration = 0.1
+
+[node name="KnockbackComponent" type="Node" parent="Components" unique_id=794760578]
+script = ExtResource("8_yllr7")
+metadata/_custom_type_script = "uid://bsw555rtftfse"
 
 [node name="StateMachine" type="Node" parent="." unique_id=770910562 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yw30f")
